@@ -12,9 +12,9 @@ pipeline {
         }
         stage('Testing') {
             steps {
-                    bat 'cd ./api-testing'
-                    bat 'mvn clean test'
-                
+                   dir('api-testing'){
+                      bat 'mvn clean test'
+                   }              
             }
         }
       }
