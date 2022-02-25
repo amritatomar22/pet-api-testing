@@ -15,17 +15,18 @@ pipeline {
                    dir('api-testing'){
                       bat 'mvn clean test'
                    }              
-            }
-        }
-        stage('Publish reports') {
-            steps{
-		dir('api-testing'){
-			publishHTML([
-			reportDir: './target/surefire-reports',
-			reportFiles: 'index.html',
-			reportName: 'HTML Report'
-			])}
+            	}
+		post{
+			always{
+				dir('api-testing'){
+					publishHTML([
+					reportDir: './target/surefire-reports',
+					reportFiles: 'index.html',
+					reportName: 'HTML Report'
+					])}
+			}
 		}
-           }
+          }
+       
       }
 }
