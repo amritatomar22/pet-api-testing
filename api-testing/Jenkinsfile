@@ -4,8 +4,9 @@ pipeline {
     stages {
         stage('Compile') {
             steps {
-               bat 'cd ./api-testing'
-               bat 'mvn clean compile'
+                dir('api-testing') { 
+                    bat 'mvn clean compile'
+                    }                    
                
             }
         }
