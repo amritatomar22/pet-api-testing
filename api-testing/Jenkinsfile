@@ -17,5 +17,15 @@ pipeline {
                    }              
             }
         }
+        stage('Publish reports') {
+            steps{
+				dir('api-testing'){
+					publishHTML([
+					reportDir: './test-output',
+					reportFiles: 'index.html',
+					reportName: 'HTML Report'
+					])}
+				}
+           }
       }
 }
