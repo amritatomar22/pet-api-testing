@@ -4,14 +4,14 @@ pipeline {
     stages {
         stage('Compile') {
             steps {
-               bat 'cd api-testing'
+               bat 'cd ./api-testing'
                bat 'mvn clean compile'
                
             }
         }
         stage('Testing') {
             steps {
-                    bat 'cd api-testing'
+                    bat 'cd ./api-testing'
                     bat 'mvn clean test'
                 
             }
