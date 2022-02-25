@@ -19,13 +19,13 @@ pipeline {
         }
         stage('Publish reports') {
             steps{
-				dir('api-testing'){
-					publishHTML([
-					reportDir: './test-output',
-					reportFiles: 'index.html',
-					reportName: 'HTML Report'
-					])}
-				}
+		dir('api-testing'){
+			publishHTML([
+			reportDir: './target/surefire-reports',
+			reportFiles: 'index.html',
+			reportName: 'HTML Report'
+			])}
+		}
            }
       }
 }
