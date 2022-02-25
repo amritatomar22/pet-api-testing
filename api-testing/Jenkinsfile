@@ -2,25 +2,26 @@ pipeline {
     agent any
 
     stages {
-        stage('Compile Stage') {
+        stage('Compile') {
             steps {
                withMaven(maven: 'maven_3_8_1'){
                bat 'mvn clean compile'
                }
             }
         }
-        stage('Testing Stage') {
+        stage('Testing') {
             steps {
                 withMaven(maven: 'maven_3_8_1'){
                     bat 'mvn clean test'
                 }
             }
         }
-        stage('Deployment Stage') {
-            steps {
-                withMaven(maven: 'maven_3_8_1'){
-                    bat 'mvn deploy'
-                }
+        stage('Publish reports') {
+            publishHTML([
+            reportDir: './test-output',
+            reportFiles: 'index.html',
+            reportName: 'HTML Report'
+            ])
             }
         }
     }
