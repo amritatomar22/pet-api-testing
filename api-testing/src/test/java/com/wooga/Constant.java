@@ -13,7 +13,7 @@ public class Constant {
 	public static final String OK_STATUS_LINE = "HTTP/1.1 200 OK";
 	public static final int BAD_REQUEST = 400;
 	
-	public static final long API_RESPONSE_TIME = 10L;
+	public static final long API_RESPONSE_TIME = 1L;
 	public static final String CONTENT_TYPE_JSON = "application/json";
 	
 }
