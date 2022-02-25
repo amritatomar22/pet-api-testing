@@ -17,11 +17,7 @@ pipeline {
             }
         }
         stage('Publish reports') {
-            publishHTML([
-            reportDir: './test-output',
-            reportFiles: 'index.html',
-            reportName: 'HTML Report'
-            ])
+            steps{}
             }
         }
 }
